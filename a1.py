@@ -23,3 +23,28 @@ def create_file(path_str, name):
     new_file.touch()
     print(new_file)
 
+def delete_file(path_str):
+    target = Path(path_str)
+    if not target.exists() or target.suffix != ".dsu":
+        print("ERROR")
+        return
+    print(f"{target} DELETED")
+    target.unlink()
+
+def read_file(path_str):
+    target = Path(path_str)
+    if not target.exists() or target.suffix != ".dsu":
+        print("ERROR")
+        return
+    with target.open() as f:
+        contents = f.read()
+    if contents.strip() == "":
+        print("EMPTY")
+    else:
+        print(contents)
+
+def run():
+    pass
+
+if __name__ == "__main__":
+    run()
