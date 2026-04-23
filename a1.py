@@ -55,7 +55,8 @@ def run():
         if len(parts) == 0:
             print("ERROR")
             continue
-
+        
+        parts = [p.strip('"') for p in parts]
         command = parts[0]
 
         if command == "Q":
