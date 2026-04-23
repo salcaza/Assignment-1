@@ -1,6 +1,7 @@
 # a1.py
 
-# Starter code for assignment 1 in ICS 32 Programming with Software Libraries in Python
+# Starter code for assignment 1 in ICS 32
+# Programming with Software Libraries in Python
 
 # Replace the following placeholders with your information.
 
@@ -9,7 +10,8 @@
 # STUDENT ID 73371481
 
 import shlex
-from pathlib import Path 
+from pathlib import Path
+
 
 def create_file(path_str, name):
     directory = Path(path_str)
@@ -23,6 +25,7 @@ def create_file(path_str, name):
     new_file.touch()
     print(new_file)
 
+
 def delete_file(path_str):
     target = Path(path_str)
     if not target.exists() or target.suffix != ".dsu":
@@ -30,6 +33,7 @@ def delete_file(path_str):
         return
     print(f"{target} DELETED")
     target.unlink()
+
 
 def read_file(path_str):
     target = Path(path_str)
@@ -43,11 +47,12 @@ def read_file(path_str):
     else:
         print(contents.rstrip())
 
+
 def run():
     while True:
         user_input = input()
         try:
-            parts = shlex.split(user_input, posix = False)
+            parts = shlex.split(user_input, posix=False)
         except ValueError:
             print("ERROR")
             continue
@@ -55,7 +60,7 @@ def run():
         if len(parts) == 0:
             print("ERROR")
             continue
-        
+
         parts = [p.strip('"') for p in parts]
         command = parts[0]
 
@@ -78,6 +83,7 @@ def run():
                 print("ERROR")
         else:
             print("ERROR")
+
 
 if __name__ == "__main__":
     run()
